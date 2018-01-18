@@ -2,9 +2,12 @@
   "name": "personal-mailer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node .",
+    "start": "node ./src/index",
+    "start-dev": "nodemon ./src/index -w ./src -e js,json",
+    "start-dev-secure": "nodemon ./bin/runSecureEnvs -w ./src -e js,json",
+    "lint": "eslint ./src",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "author": "Dmitri Voronianski <dmitri.voronianski@gmail.com>",
@@ -14,10 +17,16 @@
     "npm": ">=5.5.0"
   },
   "dependencies": {
+    "c0nfig": "^0.2.2",
+    "compression": "^1.7.1",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "mongojs": "^2.4.1",
     "morgan": "^1.9.0",
-    "network-address": "^1.1.2",
     "nodemailer": "^4.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "nodemon": "^1.14.11"
   }
 }
